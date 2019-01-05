@@ -2,9 +2,6 @@ use crate::timer::Timer;
 use crate::pic::PIC;
 use crate::consts::{CMD_INIT_MASTER, CMD_INIT_SLAVE, DAT_INIT_MASTER, DAT_INIT_SLAVE, CMD_INIT, CMD_PROTECTED_MODE};
 
-/// The Intel 8259 is composed by two PICs:
-/// * a slave,
-/// * and a master.
 pub struct Intel8259 {
     pics: [PIC; 2],
 }
