@@ -1,3 +1,4 @@
+#![no_std]
 /// Thanks to OSDEV: https://wiki.osdev.org/PIC
 ///
 /// This library implements the IBM PC/AT 8259 PIC architecture,
