@@ -1,0 +1,8 @@
+[package]
+name = "intel_8259"
+version = "0.1.0"
+authors = ["k0pernicus <antonin.carette@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+cpuio = "0.2.0"
