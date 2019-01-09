@@ -7,7 +7,7 @@ pub struct Intel8259 {
 }
 
 impl Intel8259 {
-    pub unsafe fn new(addr_pic1: u8, addr_pic2: u8) -> Intel8259 {
+    pub const unsafe fn new(addr_pic1: u8, addr_pic2: u8) -> Intel8259 {
         Intel8259 {
             pics: [
                 PIC {
