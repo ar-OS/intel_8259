@@ -70,10 +70,10 @@ impl Intel8259 {
 
     pub unsafe fn send_end_interrupt(&mut self, interrupt: u8) {
         if self.handles_interrupt(interrupt) {
-            if self.pics[0].handles_interrupt(interrupt) {
-                self.pics[0].send_end_interrupt();
+            if self.pics[1].handles_interrupt(interrupt) {
+                self.pics[1].send_end_interrupt();
             }
-            self.pics[1].send_end_interrupt();
+            self.pics[0].send_end_interrupt();
         }
     }
 }
