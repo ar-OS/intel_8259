@@ -1,6 +1,8 @@
-use crate::timer::Timer;
+use crate::consts::{
+    CMD_INIT, CMD_INIT_MASTER, CMD_INIT_SLAVE, CMD_PROTECTED_MODE, DAT_INIT_MASTER, DAT_INIT_SLAVE,
+};
 use crate::pic::PIC;
-use crate::consts::{CMD_INIT_MASTER, CMD_INIT_SLAVE, DAT_INIT_MASTER, DAT_INIT_SLAVE, CMD_INIT, CMD_PROTECTED_MODE};
+use crate::timer::Timer;
 
 pub struct Intel8259 {
     pics: [PIC; 2],
@@ -20,7 +22,7 @@ impl Intel8259 {
                     command: cpuio::UnsafePort::new(CMD_INIT_SLAVE),
                     data: cpuio::UnsafePort::new(DAT_INIT_SLAVE),
                 },
-            ]
+            ],
         }
     }
 
@@ -45,8 +47,8 @@ impl Intel8259 {
         self.pics[1].write_data(self.pics[1].addr);
         timer.wait();
 
-        // Configure the chaining in telling 
-        // Master that he needs to write to 
+        // Configure the chaining in telling
+        // Master that he needs to write to
         // Slave at IRQ2 (0x04), and tell Slave
         // its cascade identity (0x02)
         self.pics[0].write_data(0x04);
