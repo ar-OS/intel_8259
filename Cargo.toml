@@ -5,4 +5,4 @@ authors = ["k0pernicus <antonin.carette@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-cpuio = "0.2.0"
+cpuio = "0.3.0"
